@@ -1,4 +1,5 @@
 import Users from "../models/user.js";
+import jwt from 'jsonwebtoken';
 
 async function Signup(req, res) {
   const { email, firstname, lastname, password } = req.body;
@@ -8,9 +9,7 @@ async function Signup(req, res) {
 
     if (existing) {
       res.status(201).json({ msg: "User already exists" });
-    }
-    
-    else {
+    } else {
       const newUser = await Users.create({ email, firstname, lastname, password });
       res.status(200).json({ msg: "User Created", newUser });
     }
@@ -19,24 +18,19 @@ async function Signup(req, res) {
   }
 }
 
-async function Login(req, res) {
+const Login = async (req, res) => {
   const { email, password } = req.body;
 
-  try {
-    const existingUser = await Users.findOne({ email });
+  const user = await Users.findOne({ email });
 
-    if (!existingUser) {
-      return res.status(201).json({ msg: "Invalid email or user does not exist" })
-    }
+  if (!user) return res.status(201).json({ msg: "User not found" });
+  if (user.password !== password) return res.status(202).json({ msg: "Invalid password" });
 
-    if (existingUser.password !== password) {
-      return res.status(202).json({ msg: "Incorrect password" });
-    }
+  else {
+  const token = jwt.sign({ email: user.email }, "secret_key", { expiresIn: "1m" });
 
-    res.status(200).json({ msg: "Logged in", user: existingUser });
-  } catch (e) {
-    res.status(500).json({ msg: e.message });
+  res.status(200).json({ msg: "Login successful", token });
   }
-}
+};
 
 export { Signup, Login };
