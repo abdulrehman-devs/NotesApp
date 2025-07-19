@@ -1,0 +1,31 @@
+.home {
+  height: 100vh;
+  background-image: url("../assets/main1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.mainheading {
+  text-align: end;
+  color: #f6d365;
+  margin-top: 200px;
+  font-size: 65px;
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  font-weight: 900;
+  margin-left: 100px;
+}
+
+@media screen and (max-width: 500px)  {
+    .mainheading {
+        font-size: 38px;
+        display: block;
+        text-wrap: wrap;
+        text-align: center;
+        margin: 250px 0 0 0;
+        justify-content: center;
+    }
+}

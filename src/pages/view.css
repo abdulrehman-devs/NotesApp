@@ -1,0 +1,33 @@
+.note-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 10px;
+  margin-top: 90px;
+}
+
+.note-title, .save-btn {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.notes-display {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.note-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  background: #fdf1a9;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 500px) {
+  .notes-display {
+    width: 75%;
+  }
+}

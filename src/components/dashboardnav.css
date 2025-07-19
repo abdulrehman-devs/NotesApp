@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dn {
+  width: 100%;
+  background-color: #f6d365;
+  padding: 15px 50px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dn:hover {
+  background-color: #f4f0f0;
+  transition: 0.2s ease-in-out;
+}
+
+.dn:hover {
+  .heading {
+    color: #f6d365;
+  }
+
+  .signout {
+    background-color: #f4f0f0;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.heading {
+  font-size: 19px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.signout, .signout button {
+  padding: 0.5rem 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  text-decoration: none;
+  color: black;
+  background-color: #f6d365;
+}
+
+.buttons button {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.signout:hover {
+    color: #f6d365;
+}
+
+@media screen and (max-width: 500px) {
+  .dn {
+    padding: 15px;
+  }
+
+  .signout {
+    font-size: 12px;
+  }
+
+  .buttons button {
+  font-size: 13px;
+}
+
+}
